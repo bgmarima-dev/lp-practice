@@ -12,124 +12,134 @@
 
 <body>
 
-  <section class="page-container"> <!-- ←セクションの背景、要素内の余白 -->
-    <div class="inner">
-      <!-- inner:共通で使用する横幅、skills-inner:セクションごとで使用する場合に使用 -->
-      <!-- タイトルなどのコンテンツ -->
+  <!-- ←幅設定を邪魔していた不要なclassの削除・それぞれのセクションにinnerを追加 -->
+  
 
-      <header>
-        <nav class="header-nav">
-          <span class="fas fa-archway fa-3x"></span>
-          <a href="#" class="contact-button">Contact</a>
-        </nav>
-      </header>
+    <header>
+      <nav class="header-nav">
+        <span class="fas fa-archway fa-3x"></span>
+        <a href="#" class="contact-button">Contact</a>
+        <span class="fa fa-bars menu-icon"></span>
+      </nav>
+    </header>
 
-      <main>
+    <main>
 
-        <!-- メインタイトル、背景画像がある部分 -->
-        <section class="keyvisual">
+      <!-- メインタイトル、背景画像がある部分 -->
+      <section class="keyvisual">
+        <div class="inner">
           <h1>WEB PRODUCTION COMPANY</h1>
           <p class="keyvisual_text">DIRECTION,CONTENT MARKETING</p>
-        </section>
+        </div>
+      </section>
+    </main>
+  </div>
 
-        <!-- 「NEWS」のタイトルがある部分 -->
-        <section class="news">
-          <div class="news-wrapper">
-            <img src="images/news//news.png" alt="ニュースの吹き出し画像" class="news-img">
-            <div class="news-text">
-              <h2>NEWS</h2>
-              <div class="news_text">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                  incididunt
-                  ut labore et
-                  dolore magna
-                  aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                  commodo
-                  consequat. Duis
-                  aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                  Excepteur
-                  sint</p>
-              </div>
-            </div>
+  <!-- 「NEWS」のタイトルがある部分 -->
+  <section class="news">
+    <div class="inner">
+      <div class="news-wrapper">
+        <img src="images/news//news.png" alt="ニュースの吹き出し画像" class="news-img">
+        <div class="news-text">
+          <h2>NEWS</h2>
+          <div class="news_text">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+              incididunt
+              ut labore et
+              dolore magna
+              aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+              commodo
+              consequat. Duis
+              aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+              Excepteur
+              sint</p>
           </div>
-        </section>
-
-        <!-- 「SKILLS」のタイトルがある部分-->
-        <section class="skills">
-          <h3>WE ARE SKILLS</h3>
-          <div class="skills-wrapper">
-            <a href="#"><img src="images/icons//photo.png" alt="skill1"></a>
-            <a href="#"><img src="images/icons//flower.png" alt="skill2"></a>
-            <a href="#"><img src="images/icons//data.png" alt="skill3"></a>
-            <a href="#"><img src="images/icons//location.png" alt="skill4"></a>
-            <a href="#"><img src="images/icons//calender.png" alt="skill5"></a>
-            <a href="#"><img src="images/icons//security.png" alt="skill6"></a>
-          </div>
-
-        </section>
-
-        <!-- 「SELECT PLAN」のタイトルがある部分 -->
-        <section class="plan">
-          <h4>SELECT PLAN</h4>
-          <table class="plan-table">
-            <thead>
-              <tr>
-                <th>PLAN</th>
-                <th>BASIC PLAN</th>
-                <th>STANDARD PLAN</th>
-                <th>ENTERISE PLAN</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>PLICE</td>
-                <td>¥100,000</td>
-                <td>¥200,000</td>
-                <td>¥300,000</td>
-              </tr>
-              <tr>
-                <td>DELIVERY</td>
-                <td>Manuscript</td>
-                <td>HTML</td>
-                <td>Manuscript, HTML, PSD</td>
-              </tr>
-              <tr>
-                <td>ANALYSIS</td>
-                <td>○</td>
-                <td>○</td>
-                <td>○</td>
-              </tr>
-              <tr>
-                <td>IMPROVEMENT</td>
-                <td>×</td>
-                <td>○</td>
-                <td>○</td>
-              </tr>
-              <tr>
-                <td>DESIGN</td>
-                <td>×</td>
-                <td>×</td>
-                <td>○</td>
-              </tr>
-            </tbody>
-          </table>
-        </section>
-
-        <!-- iconが並んでいる部分 -->
-        <nav class="sns">
-          <!-- 課題の指定はfab fa-facebook-fですが、サンプル画像はsquareなのでsquareを使用しました -->
-          <a href="#"><span class="fab fa-facebook-square"></span></a>
-          <a href="#"><span class="fas fa-comment-dots"></span></a>
-          <a href="#"><span class="fab fa-twitter"></span></a>
-          <a href="#"><span class="fas fa-envelope"></span></a>
-        </nav>
-      </main>
-
-      <footer>
-<p class="footer-text">Copytight(c)</p>
-      </footer>
+        </div>
+      </div>
     </div>
   </section>
+
+  <!-- 「SKILLS」のタイトルがある部分-->
+  <section class="skills">
+    <div class="inner">
+      <h3>WE ARE SKILLS</h3>
+      <div class="skills-wrapper">
+        <a href="#"><img src="images/icons//photo.png" alt="skill1"></a>
+        <a href="#"><img src="images/icons//flower.png" alt="skill2"></a>
+        <a href="#"><img src="images/icons//data.png" alt="skill3"></a>
+        <a href="#"><img src="images/icons//location.png" alt="skill4"></a>
+        <a href="#"><img src="images/icons//calender.png" alt="skill5"></a>
+        <a href="#"><img src="images/icons//security.png" alt="skill6"></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 「SELECT PLAN」のタイトルがある部分 -->
+  <section class="plan">
+    <div class="inner">
+      <h4>SELECT PLAN</h4>
+      <table class="plan-table">
+        <thead>
+          <tr>
+            <th>PLAN</th>
+            <th>BASIC PLAN</th>
+            <th>STANDARD PLAN</th>
+            <th>ENTERISE PLAN</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>PLICE</td>
+            <td>¥100,000</td>
+            <td>¥200,000</td>
+            <td>¥300,000</td>
+          </tr>
+          <tr>
+            <td>DELIVERY</td>
+            <td>Manuscript</td>
+            <td>HTML</td>
+            <td>Manuscript, HTML, PSD</td>
+          </tr>
+          <tr>
+            <td>ANALYSIS</td>
+            <td>○</td>
+            <td>○</td>
+            <td>○</td>
+          </tr>
+          <tr>
+            <td>IMPROVEMENT</td>
+            <td>×</td>
+            <td>○</td>
+            <td>○</td>
+          </tr>
+          <tr>
+            <td>DESIGN</td>
+            <td>×</td>
+            <td>×</td>
+            <td>○</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- iconが並んでいる部分 -->
+  <nav class="sns">
+    <div class="inner">
+      <!-- 課題の指定はfab fa-facebook-fですが、サンプル画像はsquareなのでsquareを使用しました -->
+      <a href="#"><span class="fab fa-facebook-square"></span></a>
+      <a href="#"><span class="fas fa-comment-dots"></span></a>
+      <a href="#"><span class="fab fa-twitter"></span></a>
+      <a href="#"><span class="fas fa-envelope"></span></a>
+    </div>
+  </nav>
+
+
+  <footer>
+    <p class="footer-text">Copytight(c)</p>
+  </footer>
+
+
   <!-- NEWSの部分のテキストはこちらを使ってください -->
   <!-- Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
     dolore magna

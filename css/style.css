@@ -1,13 +1,24 @@
 @charset "utf-8";
 
+/* 追加(ページ全体の小さな余白を0に) */
+body,
+html {
+    margin: 0;
+    padding: 0;
+}
+
+
 
 .inner {
     max-width: 1100px;
+    width: 100%;
+    margin: 0 auto;
 }
 
 header {
     background-color: #fff;
 }
+
 .header-nav {
     display: flex;
     align-items: center;
@@ -30,6 +41,10 @@ header {
     transition: color 0.3s;
 }
 
+.menu-icon {
+    display: none;
+}
+
 .contact-button:hover {
     color: #333;
 }
@@ -40,6 +55,8 @@ header {
     background-position: center;
     background-repeat: no-repeat;
     padding: 400px 0;
+    /* ↓100％を追加しました */
+    width: 100%;
 }
 
 h1 {
@@ -55,12 +72,29 @@ h1 {
     font-weight: 700;
     color: #fff;
     text-align: center;
+    margin: 0;
 }
 
 
 .news {
     background-color: #e3f2fd;
-    padding: 50px 50px 0 50px;
+    /* padding: 50px 50px 0 50px削除 */
+    /* ↓追加 */
+    padding-top: 50px;
+    width: 100%;
+    text-align: center;
+}
+
+/* .news.inner追加 */
+.news .inner {
+    padding: 0 50px;
+    max-width: 1100px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 50px;
+    /* 内側の余白 */
+    box-sizing: border-box;
+    /* ←追加: padding分も幅に含める */
 }
 
 .news-wrapper {
@@ -68,16 +102,19 @@ h1 {
     align-items: flex-start;
     gap: 120px;
 }
+
 .news-img {
     padding-top: 40px;
     width: 250px;
     object-fit: cover;
     flex-shrink: 0;
 }
+
 .news-text {
     display: flex;
     flex-direction: column;
 }
+
 h2 {
     padding-top: 20px;
     padding-bottom: 35px;
@@ -89,7 +126,7 @@ h2 {
 .news_text p {
     font-size: 15px;
     line-height: 18px;
-    word-break:break-all;
+    word-break: break-all;
 }
 
 h3 {
@@ -102,6 +139,8 @@ h3 {
     background-color: #fff;
     padding-top: 50px;
     text-align: center;
+    /* ↓追加 */
+    width: 100%;
 }
 
 .skills-wrapper {
@@ -129,10 +168,13 @@ h3 {
 }
 
 .plan {
-    background-color: #d0dfea ;
+    background-color: #d0dfea;
     padding: 50px 0;
     text-align: center;
+    /* ↓追加 */
+    width: 100%;
 }
+
 h4 {
     font-size: 40px;
     letter-spacing: 10px;
@@ -145,6 +187,9 @@ h4 {
     font-size: 16px;
     line-height: 26px;
     text-align: center;
+    /* ↓PC版とTB版の切り替え時ガクッとサイズが動いてしまうので追加 */
+    width: 100%;
+
 }
 
 .plan-table thead th {
@@ -182,18 +227,26 @@ h4 {
 }
 
 .sns {
-    
+
     background-color: #e3f2fd;
     display: flex;
     gap: 80px;
     justify-content: center;
     align-items: center;
     padding: 200px 0;
+    /* ↓追加 */
+    width: 100%;
+}
+
+/* ↓.sns .inner追加 */
+.sns .inner {
+    display: flex;
+    justify-content: center;
 }
 
 .sns a {
-    color:#8c8c8c;
-    display: inline-flex; 
+    color: #8c8c8c;
+    display: inline-flex;
     justify-content: center;
     align-items: center;
     width: 185px;
@@ -209,13 +262,14 @@ h4 {
 }
 
 .sns a span {
-    font-size:  40px;
+    font-size: 40px;
 }
 
 
 footer {
     background-color: #cfd8dc;
 }
+
 .footer-text {
     color: #5a5959;
     font-size: 13px;
@@ -223,4 +277,153 @@ footer {
     padding: 25px 50px 25px 0;
     margin: 0;
     text-align: right;
+}
+
+
+
+/* ▼ タブレット版 ▼ */
+
+@media (max-width: 1199px) {
+
+    .keyvisual {
+        padding: 250px 0;
+    }
+
+    .news {
+        padding: 50px 0;
+    }
+
+    .news .inner {
+        padding: 0;
+    }
+
+    .news-wrapper {
+        display: block;
+        margin: 0 auto;
+        width: fit-content;
+        padding: 0 20px;
+    }
+
+    .news-img {
+        width: 30%;
+    }
+
+    .news_text {
+        width: 100%;
+        display: flex;
+    }
+
+    .skills-wrapper {
+        display: block;
+        text-align: center;
+        width: auto;
+        /* PC版設定が邪魔をしまくるので既存の余白を無効化 */
+        margin: 0;
+        padding: 0;
+        gap: 0 !important;
+    }
+
+    .skills-wrapper a {
+        display: block;
+        width: 300px;
+        margin: 0 auto;
+    }
+
+    .skills-wrapper img {
+        width: 100%;
+        max-width: 300px;
+        height: auto;
+        margin-bottom: 0 !important;
+        /* 既存の余白を無効化 */
+        display: block;
+    }
+
+    .skills-wrapper a:nth-child(3n) {
+        margin-bottom: 80px;
+    }
+
+    /* 3,7,11,… 枚目の下に大きめの余白を入れる */
+    .skills-wrapper a:not(:nth-child(3n)) {
+        margin-bottom: 0;
+    }
+
+    .plan .inner {
+        padding: 0 30px;
+        box-sizing: border-box;
+    }
+
+    .plan-table {
+        width: 100%;
+        max-width: 100%;
+        table-layout: fixed;
+
+    }
+
+    .plan-table thead th,
+    .plan-table tbody td {
+        padding: 10px 20px;
+        font-size: 14px;
+        white-space: nowrap;
+        /* 文字の折り返し防止 */
+    }
+}
+
+
+
+
+
+/* ▼ スマートフォン版 ▼ */
+@media (max-width: 767px) {
+
+    .contact-button {
+        display: none;
+    }
+
+    .menu-icon {
+        display: inline-block;
+        font-size: 30px;
+        color: #aaaaaa;
+    }
+
+    .keyvisual {
+        padding: 200px 0;
+    }
+
+    h1 {
+        font-size: 40px;
+    }
+
+    .keyvisual_text {
+        font-size: 30px;
+    }
+
+    .plan .inner {
+        padding: 0 20px;
+    }
+
+
+    .plan-table thead th {
+        font-size: 14px;
+        line-height: 22px;
+    }
+
+
+    .plan-table tbody td {
+        font-size: 12px;
+    }
+
+    .sns .inner {
+        /* 縦方向に並べる */
+        flex-direction: column;
+        align-items: center;
+        padding: 50px 0;
+    }
+
+    .sns a {
+        padding: 50px;
+        width: 100%;
+        margin: 0 15px;
+    }
+
+
 }
