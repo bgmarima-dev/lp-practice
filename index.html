@@ -6,39 +6,65 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>lp-practice</title>
 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- スライダー用CDN（コンテンツデリバリーネットワーク）の読み込み-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"/>
+  <link rel="stylesheet" href="css/style.css">
+
+
 </head>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-<link rel="stylesheet" href="css/style.css">
 
 <body>
 
   <!-- ←幅設定を邪魔していた不要なclassの削除・それぞれのセクションにinnerを追加 -->
-  
 
-    <header>
-      <nav class="header-nav">
-        <span class="fas fa-archway fa-3x"></span>
-        <a href="#" class="contact-button">Contact</a>
-        <span class="fa fa-bars menu-icon"></span>
-      </nav>
-    </header>
 
-    <main>
+  <header>
+    <nav class="header-nav">
+      <span class="fas fa-archway fa-3x"></span>
+      <a href="#" class="contact-button">Contact</a>
+      <span class="fa fa-bars menu-icon"></span>
+    </nav>
+  </header>
+
+  <main>
+    <!-- スライダーを実装する -->
+
+    <section class="keyvisual">
+      <div class="swiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide slide1" style="background-image: url('images/keyvisual/keyvisual.jpg');"></div>
+          <div class="swiper-slide slide2" style="background-image: url('images/keyvisual/keyvisual2.jpg');"></div>
+          <div class="swiper-slide slide3" style="background-image: url('images/keyvisual/keyvisual3.jpg');"></div>
+        </div>
+
+        <!-- 画像何枚目にいるのか表示するページネーション -->
+        <div class="swiper-pagination"></div>
+
+        <!-- 画像を左右切り替えするナビボタン -->
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+      </div>
+
+      <!-- ↑ここまでスライダー -->
 
       <!-- メインタイトル、背景画像がある部分 -->
-      <section class="keyvisual">
+      <div class="keyvisual-text-area">
         <div class="inner">
           <h1>WEB PRODUCTION COMPANY</h1>
           <p class="keyvisual_text">DIRECTION,CONTENT MARKETING</p>
         </div>
-      </section>
-    </main>
-  </div>
+      </div>
+    </section>
+  </main>
+
 
   <!-- 「NEWS」のタイトルがある部分 -->
   <section class="news">
     <div class="inner">
       <div class="news-wrapper">
+        <!-- スクロールで画像出るアニメーション -->
+        <img src="images/gif/カリキュラム猫.gif" alt="猫GIF" class="fade-in">
         <img src="images/news//news.png" alt="ニュースの吹き出し画像" class="news-img">
         <div class="news-text">
           <h2>NEWS</h2>
@@ -135,9 +161,16 @@
   </nav>
 
 
-  <footer>
+  <!-- <footer>
     <p class="footer-text">Copytight(c)</p>
-  </footer>
+  </footer> -->
+
+  <!--SwiperのCDNとスライダーのjsの読み込み-->
+  <!--scriptの読み込みは一番最後にする-->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+  <script src="js/swiper.js"></script>
+  <script src="js/click.js"></script>
+  <script src="js/scroll.js"></script>
 
 
   <!-- NEWSの部分のテキストはこちらを使ってください -->
@@ -147,6 +180,8 @@
     consequat. Duis
     aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
     sint -->
+
+
 </body>
 
 </html>

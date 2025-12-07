@@ -50,10 +50,18 @@ header {
 }
 
 .keyvisual {
-    background-image: url("../images/keyvisual/keyvisual.jpg");
+    /* ↓スライダー実装のため、画像を親要素から外す */
+    /* background-image: url("../images/keyvisual/keyvisual.jpg");
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat; */
+
+    /* 画像の代わりにサイズ確認のため一旦黒をいれました */
+    background-color: black;
+
+    /* keyvisualの子要素としてスライダーの画像を流したいので画像固定用にrelative */
+    position: relative;
+    /* ↓消すと崩れるので消さない */
     padding: 400px 0;
     /* ↓100％を追加しました */
     width: 100%;
@@ -65,6 +73,14 @@ h1 {
     color: #6ba7eb;
     margin-bottom: 30px;
     text-align: center;
+}
+
+/* ↓スライダーの画像表示を一番上にしたらテキスト埋まってしまったのでテキストを一番上にするため追加 */
+.keyvisual-text-area {
+    position: relative;
+    z-index: 10;
+    /* ↓左右の画像切り替えクリックが出来なかったので追加 */
+    pointer-events: none;
 }
 
 .keyvisual_text {
@@ -83,6 +99,8 @@ h1 {
     padding-top: 50px;
     width: 100%;
     text-align: center;
+    /* ↓スクロールアニメーション用に追加 */
+    position: relative;
 }
 
 /* .news.inner追加 */
@@ -281,9 +299,120 @@ footer {
 
 
 
+/* スライダー設定 */
+/* Swiper コンテナのスタイル */
+.swiper {
+    position: absolute;
+    /* keyvisual 内で高さを100%にするため widthとheightだけだと表示されなかったので */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* スライドのスタイル */
+.swiper-slide {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.swiper-slide.slide1 {
+    background-image: url('images/keyvisual/keyvisual.jpg');
+}
+
+.swiper-slide.slide2 {
+    background-image: url('images/keyvisual/keyvisual2.jpg');
+}
+
+.swiper-slide.slide3 {
+    background-image: url('images/keyvisual/keyvisual3.jpg');
+}
+
+/* 画像切り替えするときの左右ボタン */
+.swiper-button-next,
+.swiper-button-prev {
+    color: #fff;
+    /* ボタンを一番上に配置しないと画像に埋もれるので20 */
+    z-index: 20;
+}
+
+/* ページネーション（下の〇） */
+.swiper-pagination-bullet {
+    background-color: #fff;
+    opacity: 0.7;
+}
+
+.swiper-pagination-bullet-active {
+    /* アクティブな〇の色 */
+    background-color: #000;
+}
+
+/* スクロールでNEWSの大体真ん中くらいに画像を数秒出す */
+.fade-in {
+    /* opacity＝透明度　0は透明、1は不透明 */
+    opacity: 0;
+    /* 縦に50pxフェードインしてくる */
+    transform: translateY(50px);
+    /* ゆっくり8秒かけて猫がのっそり表示されます */
+    transition: 8s ease;
+    /* スクロールしても画像を固定 */
+    position: absolute;
+    top: 20%;
+    left: 50%;
+}
+
+/* ↓これ消すとアニメーションが一回しか再生されなくなる */
+.fade-in.show {
+    opacity: 1;
+    transform: translateY(0);
+    z-index: 40;
+}
+
+/* クリックするとハートが出るようにする */
+.heart {
+    /* クリック位置を基準にするのでabsolute（スクロールすると一緒に動く）ではなくfixed（スクロールしても同じ位置）で配置する */
+    position: fixed;
+    color: rgb(238, 108, 108);
+    font-size: 20px;
+    /* ハートの上からクリックしても下にあるボタンがクリックできるようにする */
+    pointer-events: none;
+    /* 8秒かけて上に行くアニメーションを実行し、ease-outで最後ゆっくり止まる用速度の変化を指定し、forwardsで最後の状態を維持する */
+    animation: float 8s ease-out forwards;
+    /* 念のため表示を上にしておく */
+    z-index: 50;
+}
+
+/* floatというアニメーションの中身を決めていく */
+@keyframes float {
+
+    /* アニメーション開始時0％～ */
+    0% {
+        /* 透明度0は透明、1は不透明　最初は表示させたいので1 */
+        opacity: 1;
+        /* 縦方向はまだ0　サイズは1でデフォルトのまま */
+        transform: translateY(0) scale(1);
+    }
+
+    /* アニメーション終了時100％MAXの状態 */
+    100% {
+        opacity: 0;
+        /* 上に1500px飛ばして、5倍大きくなる */
+        transform: translateY(-1500px) scale(5);
+    }
+}
+
+
 /* ▼ タブレット版 ▼ */
 
 @media (max-width: 1199px) {
+
+    /* innerの幅をTAB版・SP版で97%に修正 */
+    .inner {
+        width: 97%
+    }
 
     .keyvisual {
         padding: 250px 0;
@@ -375,6 +504,11 @@ footer {
 /* ▼ スマートフォン版 ▼ */
 @media (max-width: 767px) {
 
+    /* innerの幅をTAB版・SP版で97%に修正 */
+    .inner {
+        width: 97%
+    }
+
     .contact-button {
         display: none;
     }
@@ -424,6 +558,7 @@ footer {
         width: 100%;
         margin: 0 15px;
     }
+
 
 
 }
